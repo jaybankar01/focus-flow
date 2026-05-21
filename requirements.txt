@@ -1,0 +1,6 @@
+# Focus Flow — Pomodoro Timer Requirements
+# This is a frontend web application built using React 19, TypeScript, and Bun/Node.js.
+# There are no Python dependencies required to run or test this project.
+#
+# If you are looking for local installation prerequisites, please refer to README.md:
+# - Node.js >= 18.0.0 (or Bun >= 1.0.0)
