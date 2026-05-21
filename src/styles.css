@@ -142,3 +142,51 @@
     color: var(--color-foreground);
   }
 }
+
+/* Pomodoro mode theming */
+:root {
+  --pomo-focus: oklch(0.68 0.18 25);
+  --pomo-focus-soft: oklch(0.96 0.04 25);
+  --pomo-break: oklch(0.68 0.12 195);
+  --pomo-break-soft: oklch(0.96 0.03 195);
+  --pomo-accent: var(--pomo-focus);
+  --pomo-accent-soft: var(--pomo-focus-soft);
+}
+
+.dark {
+  --pomo-focus: oklch(0.72 0.18 25);
+  --pomo-focus-soft: oklch(0.28 0.08 25);
+  --pomo-break: oklch(0.74 0.14 195);
+  --pomo-break-soft: oklch(0.28 0.06 195);
+}
+
+[data-mode="focus"] {
+  --pomo-accent: var(--pomo-focus);
+  --pomo-accent-soft: var(--pomo-focus-soft);
+}
+[data-mode="break"] {
+  --pomo-accent: var(--pomo-break);
+  --pomo-accent-soft: var(--pomo-break-soft);
+}
+[data-paused="true"] {
+  --pomo-accent: oklch(0.65 0.02 260);
+  --pomo-accent-soft: oklch(0.94 0.01 260);
+}
+
+.pomo-glow {
+  filter: drop-shadow(0 0 24px color-mix(in oklab, var(--pomo-accent) 45%, transparent));
+  transition: filter 500ms ease;
+}
+[data-paused="true"] .pomo-glow { filter: drop-shadow(0 0 8px color-mix(in oklab, var(--pomo-accent) 20%, transparent)); }
+
+.pomo-bg-transition {
+  transition: background-color 600ms ease, color 600ms ease;
+}
+
+@keyframes pomo-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+.pomo-pop { animation: pomo-pop 600ms ease; }
+
