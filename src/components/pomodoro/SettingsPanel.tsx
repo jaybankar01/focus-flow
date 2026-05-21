@@ -12,18 +12,18 @@ type Props = {
 export function SettingsPanel({ open, settings, mode, onUpdate, onSwitchMode }: Props) {
   return (
     <div
-      className="grid w-full overflow-hidden transition-[grid-template-rows,opacity,margin] duration-500 ease-out"
-      style={{ gridTemplateRows: open ? "1fr" : "0fr", opacity: open ? 1 : 0, marginTop: open ? "0.5rem" : 0 }}
+      className="grid w-full overflow-hidden transition-[grid-template-rows,opacity,margin] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+      style={{ gridTemplateRows: open ? "1fr" : "0fr", opacity: open ? 1 : 0, marginTop: open ? "0.25rem" : 0 }}
       aria-hidden={!open}
     >
       <div className="min-h-0">
-        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
-          <div className="flex items-center gap-2 mb-4 rounded-full bg-muted p-1">
+        <div className="pomo-glass rounded-2xl p-5">
+          <div className="flex items-center gap-1 mb-4 rounded-full bg-white/[0.04] p-1 border border-white/[0.06]">
             <ModeTab active={mode === "focus"} onClick={() => onSwitchMode("focus")} label="Focus" />
             <ModeTab active={mode === "break"} onClick={() => onSwitchMode("break")} label="Break" />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             <NumberField
               label="Focus minutes"
               value={settings.focusMinutes}
@@ -40,7 +40,7 @@ export function SettingsPanel({ open, settings, mode, onUpdate, onSwitchMode }: 
             />
           </div>
 
-          <label className="mt-4 flex items-center justify-between gap-3 rounded-xl bg-muted/60 px-3 py-2 cursor-pointer">
+          <label className="mt-4 flex items-center justify-between gap-3 rounded-xl bg-white/[0.04] border border-white/[0.06] px-3.5 py-2.5 cursor-pointer">
             <span className="text-sm font-medium text-foreground">Notification sound</span>
             <input
               type="checkbox"
@@ -61,9 +61,21 @@ function ModeTab({ active, onClick, label }: { active: boolean; onClick: () => v
     <button
       type="button"
       onClick={onClick}
-      className={`flex-1 rounded-full px-4 py-2 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-        active ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
+      className={`flex-1 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+        active
+          ? "text-foreground shadow-sm"
+          : "text-muted-foreground hover:text-foreground"
       }`}
+      style={
+        active
+          ? {
+              background:
+                "linear-gradient(180deg, color-mix(in oklab, var(--pomo-accent) 35%, transparent), color-mix(in oklab, var(--pomo-accent) 18%, transparent))",
+              boxShadow:
+                "inset 0 1px 0 color-mix(in oklab, white 14%, transparent), 0 6px 18px -10px var(--pomo-accent-glow)",
+            }
+          : undefined
+      }
       aria-pressed={active}
     >
       {label}
@@ -86,12 +98,14 @@ function NumberField({
 }) {
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="text-xs font-medium text-muted-foreground">{label}</span>
-      <div className="flex items-center rounded-xl border border-border bg-background">
+      <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+        {label}
+      </span>
+      <div className="flex items-center rounded-xl border border-white/[0.08] bg-white/[0.03] overflow-hidden">
         <button
           type="button"
           onClick={() => onChange(Math.max(min, value - 1))}
-          className="h-10 w-10 text-lg text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-l-xl"
+          className="h-11 w-11 text-lg text-muted-foreground hover:text-foreground hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
           aria-label={`Decrease ${label}`}
         >
           −
@@ -110,7 +124,7 @@ function NumberField({
         <button
           type="button"
           onClick={() => onChange(Math.min(max, value + 1))}
-          className="h-10 w-10 text-lg text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-r-xl"
+          className="h-11 w-11 text-lg text-muted-foreground hover:text-foreground hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
           aria-label={`Increase ${label}`}
         >
           +
