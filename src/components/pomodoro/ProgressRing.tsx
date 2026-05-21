@@ -45,7 +45,7 @@ export function ProgressRing({ progress, status, children }: Props) {
       >
         <defs>
           <linearGradient id="pomo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%"  stopColor="var(--pomo-accent)" />
+            <stop offset="0%" stopColor="var(--pomo-accent)" />
             <stop offset="100%" stopColor="var(--pomo-accent-edge)" />
           </linearGradient>
           <radialGradient id="pomo-inner" cx="50%" cy="50%" r="50%">
@@ -87,15 +87,12 @@ export function ProgressRing({ progress, status, children }: Props) {
           strokeDashoffset={offset}
           filter="url(#pomo-edge-glow)"
           style={{
-            transition:
-              "stroke-dashoffset 900ms cubic-bezier(0.4, 0, 0.2, 1), stroke 600ms ease",
+            transition: "stroke-dashoffset 900ms cubic-bezier(0.4, 0, 0.2, 1), stroke 600ms ease",
           }}
         />
       </svg>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        {children}
-      </div>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">{children}</div>
     </div>
   );
 }

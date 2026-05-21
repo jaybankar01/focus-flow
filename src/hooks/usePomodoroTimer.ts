@@ -33,8 +33,7 @@ export function usePomodoroTimer() {
   }, []);
 
   const fullDurationSec = useCallback(
-    (m: Mode, s: Settings = settings) =>
-      (m === "focus" ? s.focusMinutes : s.breakMinutes) * 60,
+    (m: Mode, s: Settings = settings) => (m === "focus" ? s.focusMinutes : s.breakMinutes) * 60,
     [settings],
   );
 

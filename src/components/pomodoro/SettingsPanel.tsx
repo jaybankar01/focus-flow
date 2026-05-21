@@ -13,14 +13,26 @@ export function SettingsPanel({ open, settings, mode, onUpdate, onSwitchMode }: 
   return (
     <div
       className="grid w-full overflow-hidden transition-[grid-template-rows,opacity,margin] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-      style={{ gridTemplateRows: open ? "1fr" : "0fr", opacity: open ? 1 : 0, marginTop: open ? "0.25rem" : 0 }}
+      style={{
+        gridTemplateRows: open ? "1fr" : "0fr",
+        opacity: open ? 1 : 0,
+        marginTop: open ? "0.25rem" : 0,
+      }}
       aria-hidden={!open}
     >
       <div className="min-h-0">
         <div className="pomo-glass rounded-2xl p-5">
           <div className="flex items-center gap-1 mb-4 rounded-full bg-white/[0.04] p-1 border border-white/[0.06]">
-            <ModeTab active={mode === "focus"} onClick={() => onSwitchMode("focus")} label="Focus" />
-            <ModeTab active={mode === "break"} onClick={() => onSwitchMode("break")} label="Break" />
+            <ModeTab
+              active={mode === "focus"}
+              onClick={() => onSwitchMode("focus")}
+              label="Focus"
+            />
+            <ModeTab
+              active={mode === "break"}
+              onClick={() => onSwitchMode("break")}
+              label="Break"
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
@@ -56,15 +68,21 @@ export function SettingsPanel({ open, settings, mode, onUpdate, onSwitchMode }: 
   );
 }
 
-function ModeTab({ active, onClick, label }: { active: boolean; onClick: () => void; label: string }) {
+function ModeTab({
+  active,
+  onClick,
+  label,
+}: {
+  active: boolean;
+  onClick: () => void;
+  label: string;
+}) {
   return (
     <button
       type="button"
       onClick={onClick}
       className={`flex-1 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-        active
-          ? "text-foreground shadow-sm"
-          : "text-muted-foreground hover:text-foreground"
+        active ? "text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
       }`}
       style={
         active

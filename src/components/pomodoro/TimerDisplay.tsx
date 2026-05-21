@@ -8,8 +8,7 @@ type Props = {
 };
 
 export function TimerDisplay({ remaining, mode, status }: Props) {
-  const label =
-    status === "paused" ? "Paused" : mode === "focus" ? "Focus" : "Break";
+  const label = status === "paused" ? "Paused" : mode === "focus" ? "Focus" : "Break";
   const sub =
     status === "idle"
       ? "Ready when you are"

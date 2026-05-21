@@ -5,15 +5,10 @@ type Props = { history: HistoryState };
 
 export function SessionHistory({ history }: Props) {
   const sessions = [...history.sessions].reverse();
-  const totalMin = Math.round(
-    history.sessions.reduce((acc, s) => acc + s.durationSec, 0) / 60,
-  );
+  const totalMin = Math.round(history.sessions.reduce((acc, s) => acc + s.durationSec, 0) / 60);
 
   return (
-    <section
-      aria-label="Today's focus sessions"
-      className="pomo-glass w-full rounded-2xl p-5"
-    >
+    <section aria-label="Today's focus sessions" className="pomo-glass w-full rounded-2xl p-5">
       <header className="flex items-baseline justify-between mb-3">
         <div className="flex items-baseline gap-2">
           <h2 className="text-sm font-semibold text-foreground tracking-tight">Today</h2>
@@ -58,16 +53,11 @@ export function SessionHistory({ history }: Props) {
                   ✓
                 </span>
                 <span className="flex flex-col min-w-0">
-                  <span className="font-medium text-foreground leading-tight">
-                    Focus session
-                  </span>
+                  <span className="font-medium text-foreground leading-tight">Focus session</span>
                   <span className="text-[12px] text-muted-foreground leading-tight">
                     <span className="tabular-nums">{formatMMSS(s.durationSec)}</span>
                     <span className="mx-1.5 opacity-50">·</span>
-                    <time
-                      className="tabular-nums"
-                      dateTime={new Date(s.completedAt).toISOString()}
-                    >
+                    <time className="tabular-nums" dateTime={new Date(s.completedAt).toISOString()}>
                       {formatClockTime(s.completedAt)}
                     </time>
                   </span>

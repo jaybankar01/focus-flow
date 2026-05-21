@@ -7,7 +7,9 @@ export function useNotificationSound() {
     if (muted || typeof window === "undefined") return;
     try {
       if (!ctxRef.current) {
-        const AC = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+        const AC =
+          window.AudioContext ||
+          (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
         ctxRef.current = new AC();
       }
       const ctx = ctxRef.current!;

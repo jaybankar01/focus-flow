@@ -72,19 +72,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Pomo.focus — Pomodoro Timer" },
+      {
+        name: "description",
+        content:
+          "A calm, polished Pomodoro timer with configurable focus and break sessions, daily history, and smooth visual feedback.",
+      },
+      { name: "author", content: "Pomo.focus" },
+      { property: "og:title", content: "Pomo.focus — Pomodoro Timer" },
+      {
+        property: "og:description",
+        content:
+          "Focus. Break. Repeat. A premium Pomodoro timer built with React and TanStack Start.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "theme-color", content: "#1a1625" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: "/favicon.svg",
       },
     ],
   }),
