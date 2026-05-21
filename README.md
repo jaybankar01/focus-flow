@@ -77,7 +77,7 @@ bun run preview
 
 The app is deployed publicly at:
 
-> **[https://focus-flow.vercel.app](https://focus-flow.vercel.app)**
+> **[https://focus-flow-three-xi.vercel.app/](https://focus-flow-three-xi.vercel.app/)**
 
 ### Deploy your own fork
 

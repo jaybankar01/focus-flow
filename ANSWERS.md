@@ -27,7 +27,7 @@ bun run build      # outputs to .output/ via Vite + TanStack Start
 bun run preview    # preview production bundle locally
 ```
 
-**Live deployment:** [https://focus-flow.vercel.app](https://focus-flow.vercel.app)
+**Live deployment:** [https://focus-flow-three-xi.vercel.app/](https://focus-flow-three-xi.vercel.app/)
 
 ---
 
