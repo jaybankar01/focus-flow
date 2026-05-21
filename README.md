@@ -1,4 +1,4 @@
-# 🍅 Pomo.focus — Pomodoro Timer
+# 🍅 Focus Flow — Pomodoro Timer
 
 A calm, polished Pomodoro timer built for deep work. Beautiful ambient visuals, smooth transitions, and zero distractions — so you can actually focus.
 

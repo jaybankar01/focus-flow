@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pomo.focus — Pomodoro Timer" },
+      { title: "Focus Flow — Pomodoro Timer" },
       {
         name: "description",
         content:
           "A calm, polished Pomodoro timer with configurable focus and break sessions, daily history, and smooth visual feedback.",
       },
-      { name: "author", content: "Pomo.focus" },
-      { property: "og:title", content: "Pomo.focus — Pomodoro Timer" },
+      { name: "author", content: "Focus Flow" },
+      { property: "og:title", content: "Focus Flow — Pomodoro Timer" },
       {
         property: "og:description",
         content:

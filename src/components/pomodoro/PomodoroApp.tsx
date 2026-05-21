@@ -53,8 +53,8 @@ export function PomodoroApp() {
               aria-hidden="true"
             />
             <h1 className="text-[15px] font-semibold tracking-tight text-foreground">
-              Pomo
-              <span className="text-muted-foreground font-medium">.focus</span>
+              Focus
+              <span className="text-muted-foreground font-medium"> Flow</span>
             </h1>
           </div>
           <button
